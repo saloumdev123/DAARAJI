@@ -1,10 +1,12 @@
 package saraya.tech.DaaraMouhamedKhalilHussayri.service;
 
+import org.springframework.stereotype.Service;
 import saraya.tech.DaaraMouhamedKhalilHussayri.model.Payment;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Service
 public class PaymentImpl implements IPayment{
     @Override
     public Payment createPayment(Long studentId,

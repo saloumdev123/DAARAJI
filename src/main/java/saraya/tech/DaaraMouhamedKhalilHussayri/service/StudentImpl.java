@@ -1,5 +1,6 @@
 package saraya.tech.DaaraMouhamedKhalilHussayri.service;
 
+import org.springframework.stereotype.Service;
 import saraya.tech.DaaraMouhamedKhalilHussayri.dao.PaymentRepository;
 import saraya.tech.DaaraMouhamedKhalilHussayri.dao.StudentRepository;
 import saraya.tech.DaaraMouhamedKhalilHussayri.exception.ResourceNotFoundException;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
+@Service
 public class StudentImpl implements IStudent{
     private final StudentRepository studentRepository;
     private final PaymentRepository paymentRepository;
@@ -60,12 +62,7 @@ public class StudentImpl implements IStudent{
 
 
     @Override
-    public Payment makePayment(Long studentId,
-                               LocalDate paymentDate,
-                               Double paymentAmount,
-                               String paymentMethod,
-                               String paymentStatus,
-                               String transactionReference) {
+    public Payment makePayment(Long studentId, LocalDate paymentDate, Double paymentAmount, String paymentMethod, String paymentStatus, String transactionReference) {
         Student student = getStudentById(studentId);
         Payment payment = new Payment(student,
                                       paymentDate,
@@ -85,7 +82,6 @@ public class StudentImpl implements IStudent{
         Student student = getStudentById(studentId);
         List<Payment> payments = getPaymentHistoryByStudent(studentId);
         double totalPaid = payments.stream().mapToDouble(Payment::getPaymentAmount).sum();
-        // Calcul du solde restant à payer
         return student.getTotalFees() - totalPaid;
     }
 
