@@ -1,0 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+.card-overlay {
+  image-resolution: 1600px 1039px;
+  background: linear-gradient(rgba(0, 0, 0, 0.666), rgba(0, 0, 0, 0.5));
+}
