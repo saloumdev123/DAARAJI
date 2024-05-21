@@ -19,7 +19,7 @@ public class Student {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long studentId;
-    private LocalDateTime dateOfBirth;
+    ;
     private int studentNumber;
     private String parentsAddress;
     private String parentsContactsInfo;
@@ -29,6 +29,9 @@ public class Student {
     private Set<Course> courseList;
     @ManyToMany(fetch= FetchType.EAGER)
     private Set<Teacher> teachers;
+    @ManyToOne
+    @JoinColumn(name = "school_id")
+    private School school;
     private Double totalFees;
 
 }

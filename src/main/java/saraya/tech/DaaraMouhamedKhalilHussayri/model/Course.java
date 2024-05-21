@@ -41,6 +41,8 @@ public class Course {
     private int numberOfStudents;
     private String courseSchedule;
     private Duration courseDurations = Duration.ofHours(2);
-
+    @ManyToOne
+    @JoinColumn(name = "school_id")
+    private School school;
 
 }

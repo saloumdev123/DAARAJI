@@ -26,13 +26,7 @@ public class Payment {
     @ManyToOne
     private Student student;
 
-    public Payment(Student student,
-                   LocalDate paymentDate,
-                   Double paymentAmount,
-                   String paymentMethod,
-                   String paymentStatus,
-                   String transactionReference) {
-    }
+
 
 
 

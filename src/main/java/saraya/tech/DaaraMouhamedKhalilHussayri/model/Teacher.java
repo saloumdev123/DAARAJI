@@ -1,5 +1,6 @@
 package saraya.tech.DaaraMouhamedKhalilHussayri.model;
 
+import ch.qos.logback.classic.pattern.LineOfCallerConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @Entity
@@ -32,7 +34,7 @@ public class Teacher {
     private LocalDateTime teachingStartDateDaara;
 
     @Column(name = "subject_taught_levels")
-    private LocalDateTime subjectsTaughtLevels;
+    private List<String> subjectsTaughtLevels;
 
     @Column(name = "student_schedule-timetable")
     private LocalDateTime course_schedule_timetable;
@@ -42,5 +44,9 @@ public class Teacher {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Course> courses;
+
+    @ManyToOne
+    @JoinColumn(name = "school_id")
+    private School school;
 
 }
